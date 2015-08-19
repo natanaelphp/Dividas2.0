@@ -12,4 +12,14 @@ class StatusRepository
     {
         $this->model = $model;
     }
+
+    public function getStatus($id)
+    {
+        $status = $this->model->find($id)
+                            ->with('userDebtor')
+                            ->with('userReceiver')
+                            ->get()[0];
+
+        return $status;
+    }
 }
