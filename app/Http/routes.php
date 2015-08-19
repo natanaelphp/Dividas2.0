@@ -12,12 +12,3 @@
 */
 
 $router->get('/', 'HomeController@index');
-
-$router->get('test', function(){
-
-    $statusService = $this->app->make('App\Services\StatusService');
-    $d = $statusService->getDataForHomePage(1, 1);
-
-    dump($d);
-
-});
