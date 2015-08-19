@@ -12,4 +12,14 @@ class TransactionRepository
     {
         $this->model = $model;
     }
+
+    public function all()
+    {
+        $transactions = $this->model->with('paidBy')
+                                    ->with('createdBy')
+                                    ->orderBy('created_at', 'desc')
+                                    ->paginate(8);
+
+        return $transactions;
+    }
 }

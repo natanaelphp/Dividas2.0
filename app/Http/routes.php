@@ -12,3 +12,5 @@
 */
 
 $router->get('/', 'HomeController@index');
+
+$router->get('transactions', 'TransactionController@index');
