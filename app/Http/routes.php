@@ -14,3 +14,5 @@
 $router->get('/', 'HomeController@index');
 
 $router->get('transactions', 'TransactionController@index');
+$router->get('transactions/add/{paid_by}', 'TransactionController@create');
+$router->post('transactions', 'TransactionController@store');

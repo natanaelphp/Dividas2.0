@@ -5,10 +5,9 @@
 @section('content')
 
 	<h1>Pagamento de {{ $user->name }}</h1>
-	<img src="{{ asset('images/' . $user->name . '.jpg') }}" class='profile-mini'>
+	<img src="{{ asset('images/' . $user->image) }}" class='profile-mini'>
 
-	
-	<form action="{{ url('transactions/add/'.$user->id) }}" method="post" class="form-transaction">
+	<form action="{{ url('transactions') }}" method="post" class="form-transaction">
 
 		@if ( count($errors) > 0 )
 			<div class="error">
@@ -23,6 +22,8 @@
 
 		<label for="description">Descrição:</label>
 		<input type="text" name="description" value="{{ old('description') }}">
+
+		<input type="hidden" name="paid_by" value="{{ $user->id }}">
 
 		<input type="submit" value="Inserir">
 
