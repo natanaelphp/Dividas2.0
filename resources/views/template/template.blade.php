@@ -8,11 +8,15 @@
 	</head>
 
 	<body>
-		<center>	
-			
+		
+		@section('beforeCenter')
+		@show
+
+		<center>
+
 			@section('content')
 			@show
-			
+
 		</center>
 	</body>
 </html>

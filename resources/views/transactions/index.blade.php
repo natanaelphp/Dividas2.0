@@ -1,6 +1,8 @@
 @extends('template/template')
 
-<a href="{{url('/')}}">Voltar</a>
+@section('beforeCenter')
+	<a href="{{url('/')}}">Voltar</a>
+@stop
 
 @section('content')
 
