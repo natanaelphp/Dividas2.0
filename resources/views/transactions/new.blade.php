@@ -9,7 +9,7 @@
 	<h1>Pagamento de {{ $user->name }}</h1>
 	<img src="{{ asset('images/' . $user->image) }}" class='profile-mini'>
 
-	<form action="{{ url('transactions') }}" method="post" class="form-transaction">
+	<form action="{{ url('transactions') }}" method="post" class="form">
 
 		@if ( count($errors) > 0 )
 			<div class="error">

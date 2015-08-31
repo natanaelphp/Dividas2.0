@@ -11,6 +11,8 @@
 |
 */
 
+$router->get('login', 'AuthController@login');
+
 $router->get('/', 'HomeController@index');
 
 $router->get('transactions', 'TransactionController@index');
