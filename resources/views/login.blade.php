@@ -18,7 +18,7 @@
 		<input type="text" name="email" value="{{ old('email') }}">
 
         <label for="value">Senha:</label>
-		<input type="password" name="senha" value="{{ old('senha') }}">
+		<input type="password" name="password" value="">
 
         <input type="submit" value="Login">
 
