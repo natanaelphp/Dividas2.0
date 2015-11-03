@@ -32,8 +32,6 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return redirect('login')
-                    ->withInput($request->all())
-                    ->withErrors('Usuário ou senha inválidos');
+        return redirect('login')->withInput()->withErrors('Usuário ou senha inválidos');
     }
 }
