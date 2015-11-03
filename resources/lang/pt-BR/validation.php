@@ -90,8 +90,10 @@ return array(
 
 	'attributes' => array(
 		'username'  	=> 'Nome do usuário',
+		'email'			=> 'E-mail',
+		'password'		=> 'Senha',
 		'value'			=> 'Valor',
 		'description'	=> 'Descrição',
-	),	
+	),
 
 );
