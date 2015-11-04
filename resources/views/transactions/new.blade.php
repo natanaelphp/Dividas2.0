@@ -27,6 +27,7 @@
 		<input type="text" name="description" value="{{ old('description') }}">
 
 		<input type="hidden" name="paid_by" value="{{ $user->id }}">
+		<input type="hidden" name="created_by" value="{{ $authUser->id }}">
 
 		<input type="submit" value="Inserir">
 

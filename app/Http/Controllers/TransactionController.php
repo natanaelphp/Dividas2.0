@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Guard as Auth;
 
 use App\Http\Requests\TransactionRequest;
 use App\Http\Controllers\Controller;
@@ -26,11 +27,14 @@ class TransactionController extends Controller
         return View('transactions.index')->with('transactions', $transactions);
     }
 
-    public function create($id, UserRepository $userRepository)
+    public function create($id, UserRepository $userRepository, Auth $auth)
     {
-        $user = $userRepository->find($id);
-
-        return View('transactions.new')->with('user', $user);
+        $data = [
+            'user'      => $userRepository->find($id),
+            'authUser'  => $auth->user(),
+        ];
+        
+        return View('transactions.new')->with($data);
     }
 
     public function store(TransactionRequest $request)
