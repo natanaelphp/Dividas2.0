@@ -128,7 +128,9 @@ h1{
 	border-color: #faebcc;
 	border-radius: 4px;
 }
-
+.pull-right{
+	float: right;
+}
 /*----------------------------------------------------------------------------------------*/
 
 .tabela{

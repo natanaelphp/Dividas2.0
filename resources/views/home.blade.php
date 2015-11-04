@@ -1,7 +1,8 @@
 @extends('template.template')
 
 @section('beforeCenter')
-	<a href="{{{ url('transactions') }}}">Listar Transações</a>
+	<a href="{{ url('transactions') }}">Listar Transações</a>
+	<a href="{{ url('logout') }}" class="pull-right">Logout</a>
 @stop
 
 @section('content')

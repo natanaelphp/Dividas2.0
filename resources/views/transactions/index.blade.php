@@ -2,6 +2,7 @@
 
 @section('beforeCenter')
 	<a href="{{url('/')}}">Voltar</a>
+	<a href="{{ url('logout') }}" class="pull-right">Logout</a>
 @stop
 
 @section('content')
