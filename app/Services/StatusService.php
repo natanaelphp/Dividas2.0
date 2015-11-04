@@ -16,19 +16,20 @@ class StatusService
         $this->userRepository = $userRepository;
     }
 
-    public function getDataForHomePage($status, $user_id)
+    public function getDataForHomePage($status, $user)
     {
         $status = $this->statusRepository->getStatus($status);
-        $user   = $this->userRepository->find($user_id);
 
         if ($user->id == $status->userReceiver->id) {
             $arrowDirection = 'left';
             $otherUserImage = $status->userDebtor->image;
+            $otherUserId    = $status->userDebtor->id;
         }
 
         if ($user->id == $status->userDebtor->id) {
             $arrowDirection = 'right';
             $otherUserImage = $status->userReceiver->image;
+            $otherUserId    = $status->userReceiver->id;
         }
 
         return $data = [
@@ -36,6 +37,8 @@ class StatusService
             'otherUserImage'    => $otherUserImage,
             'arrowDirection'    => $arrowDirection,
             'value'             => $status->value,
+            'userId'            => $user->id,
+            'otherUserId'       => $otherUserId,
         ];
     }
 }

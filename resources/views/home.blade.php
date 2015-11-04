@@ -15,10 +15,10 @@
 	</div>
 
 	<div class="central-box">
-		<a href='transactions/add/1'>
+		<a href='transactions/add/{{$userId}}'>
 			<img src="images/{{$userImage}}" class="profile">
 		</a>
-		<a href='transactions/add/2'>
+		<a href='transactions/add/{{$otherUserId}}'>
 			<img src="images/{{$otherUserImage}}" class="profile">
 		</a>
 	</div>
