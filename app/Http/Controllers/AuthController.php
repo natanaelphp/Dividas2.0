@@ -34,4 +34,10 @@ class AuthController extends Controller
 
         return redirect('login')->withInput()->withErrors('Usuário ou senha inválidos');
     }
+
+    public function logout(Auth $auth)
+    {
+        $this->auth->logout();
+        return redirect('login');
+    }
 }
