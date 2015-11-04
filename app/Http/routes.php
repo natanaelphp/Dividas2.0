@@ -13,9 +13,14 @@
 
 $router->get('login', 'AuthController@login');
 $router->post('login', 'AuthController@authenticate');
+$router->get('logout', "AuthController@logout");
 
-$router->get('/', 'HomeController@index');
+$router->group(['middleware' => 'auth'], function($router) {
 
-$router->get('transactions', 'TransactionController@index');
-$router->get('transactions/add/{paid_by}', 'TransactionController@create');
-$router->post('transactions', 'TransactionController@store');
+    $router->get('/', 'HomeController@index');
+
+    $router->get('transactions', 'TransactionController@index');
+    $router->get('transactions/add/{paid_by}', 'TransactionController@create');
+    $router->post('transactions', 'TransactionController@store');
+
+});
