@@ -22,4 +22,9 @@ class StatusRepository
 
         return $status;
     }
+
+    public function find($id)
+    {
+        return $this->model->find($id);
+    }
 }
