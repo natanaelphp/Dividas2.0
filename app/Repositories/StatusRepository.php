@@ -27,4 +27,9 @@ class StatusRepository
     {
         return $this->model->find($id);
     }
+
+    public function save($status)
+    {
+        return $status->save();
+    }
 }
