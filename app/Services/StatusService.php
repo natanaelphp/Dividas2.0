@@ -41,4 +41,31 @@ class StatusService
             'otherUserId'       => $otherUserId,
         ];
     }
+
+    public function updateStatus($transaction)
+    {
+        $half = $transaction->value / 2;
+
+		$status = $this->statusRepository->find(1);
+
+		if ($transaction->paid_by == $status->receiver) {
+			$status->value = $status->value + $half;
+		} elseif($transaction->paid_by == $status->debtor) {
+			if ($half > $status->value) {
+				$receiver = $status->receiver;
+				$debtor   = $status->debtor;
+
+				$status->receiver = $debtor;
+				$status->debtor   = $receiver;
+
+				$status->value = $half - $status->value;
+			} else {
+				$status->value = $status->value - $half;
+			}
+		}
+
+		$saved = $this->statusRepository->save($status);
+
+		return $saved;
+    }
 }
