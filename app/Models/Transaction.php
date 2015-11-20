@@ -8,7 +8,7 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
 
-	protected $fillable = ['value', 'description', 'paid_by', 'created_by'];
+	protected $fillable = ['value', 'description', 'paid_by', 'created_by', 'status_id'];
 
 	protected $dates = ['created_at', 'updated_at'];
 
