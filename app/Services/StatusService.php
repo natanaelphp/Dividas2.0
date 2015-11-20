@@ -46,7 +46,7 @@ class StatusService
     {
         $half = $transaction->value / 2;
 
-		$status = $this->statusRepository->find(1);
+		$status = $this->statusRepository->find($transaction->status_id);
 
 		if ($transaction->paid_by == $status->receiver) {
 			$status->value = $status->value + $half;
