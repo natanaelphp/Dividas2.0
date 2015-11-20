@@ -23,10 +23,7 @@ class AuthController extends Controller
 
     public function authenticate(LoginRequest $request)
     {
-        $data = [
-            'email'     => $request->get('email'),
-            'password'  => $request->get('password'),
-        ];
+        $data = $request->only('email', 'password');
 
         if ($this->auth->attempt($data)) {
             return redirect()->intended('/');
