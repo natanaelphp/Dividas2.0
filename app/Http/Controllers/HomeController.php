@@ -19,6 +19,6 @@ class HomeController extends Controller
 
         $data = $statusService->getDataForHomePage($status, $user);
 
-        return View('home', $data);
+        return View('home')->with($data);
     }
 }
