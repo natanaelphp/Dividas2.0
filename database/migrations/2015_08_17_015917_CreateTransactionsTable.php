@@ -19,10 +19,12 @@ class CreateTransactionsTable extends Migration
 			$table->string('description');
             $table->integer('paid_by')->unsigned();
 			$table->integer('created_by')->unsigned();
+            $table->integer('status_id')->unsigned();
 			$table->timestamps();
 
             $table->foreign('paid_by')->references('id')->on('users');
             $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('status_id')->references('id')->on('status');
 		});
     }
 
