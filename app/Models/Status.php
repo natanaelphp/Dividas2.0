@@ -21,4 +21,9 @@ class Status extends Model
     {
         return $this->belongsTo('App\Models\User', 'receiver');
     }
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
 }

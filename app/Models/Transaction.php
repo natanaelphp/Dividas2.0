@@ -21,4 +21,9 @@ class Transaction extends Model
     {
         return $this->belongsTo('App\Models\User', 'created_by');
     }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status');
+    }
 }
