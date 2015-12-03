@@ -17,6 +17,7 @@ class CreateTransactionsTable extends Migration
 			$table->increments('id');
 			$table->decimal('value');
 			$table->string('description');
+            $table->string('type');
             $table->integer('paid_by')->unsigned();
 			$table->integer('created_by')->unsigned();
             $table->integer('status_id')->unsigned();
