@@ -44,23 +44,27 @@ class StatusService
 
     public function updateStatus($transaction)
     {
-        $half = $transaction->value / 2;
+        $amount = $transaction->value;
+        
+        if ($transaction->type == 'DividedPayment') {
+            $amount = $transaction->value / 2;
+        }
 
 		$status = $this->statusRepository->find($transaction->status_id);
 
 		if ($transaction->paid_by == $status->receiver) {
-			$status->value = $status->value + $half;
+			$status->value = $status->value + $amount;
 		} elseif($transaction->paid_by == $status->debtor) {
-			if ($half > $status->value) {
+			if ($amount > $status->value) {
 				$receiver = $status->receiver;
 				$debtor   = $status->debtor;
 
 				$status->receiver = $debtor;
 				$status->debtor   = $receiver;
 
-				$status->value = $half - $status->value;
+				$status->value = $amount - $status->value;
 			} else {
-				$status->value = $status->value - $half;
+				$status->value = $status->value - $amount;
 			}
 		}
 
