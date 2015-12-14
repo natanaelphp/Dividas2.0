@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\TransactionRepository;
 use App\Repositories\UserRepository;
 
-use App\Services\TransactionService;
+use App\Services\CreateTransactionService;
 
 class TransactionController extends Controller
 {
@@ -39,9 +39,9 @@ class TransactionController extends Controller
         return View('transactions.new')->with($data);
     }
 
-    public function store(TransactionRequest $request, TransactionService $transactionService)
+    public function store(TransactionRequest $request, CreateTransactionService $createTransactionService)
     {
-        $transactionService->create($request->all());
+        $createTransactionService->createTransaction($request->all());
         return redirect('/');
     }
 }

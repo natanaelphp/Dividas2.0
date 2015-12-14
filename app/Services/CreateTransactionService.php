@@ -5,7 +5,7 @@ namespace App\Services;
 use App;
 use App\Repositories\TransactionRepository;
 
-class TransactionService
+class CreateTransactionService
 {
     private $transactionRepository;
 
@@ -14,11 +14,11 @@ class TransactionService
         $this->transactionRepository = $transactionRepository;
     }
 
-    public function create($data)
+    public function createTransaction($data)
     {
         $transaction = $this->transactionRepository->create($data);
-        
-        $statusService = App::make('App\Services\StatusService');
-        $statusService->updateStatus($transaction);
+
+        $updateStatusService = App::make('App\Services\UpdateStatusService');
+        $updateStatusService->updateStatus($transaction);
     }
 }

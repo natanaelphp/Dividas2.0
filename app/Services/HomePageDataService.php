@@ -3,17 +3,14 @@
 namespace App\Services;
 
 use App\Repositories\StatusRepository;
-use App\Repositories\UserRepository;
 
-class StatusService
+class HomePageDataService
 {
     private $statusRepository;
-    private $userRepository;
 
-    public function __construct(StatusRepository $statusRepository, UserRepository $userRepository)
+    public function __construct(StatusRepository $statusRepository)
     {
         $this->statusRepository = $statusRepository;
-        $this->userRepository = $userRepository;
     }
 
     public function getDataForHomePage($status, $user)
@@ -40,36 +37,5 @@ class StatusService
             'userId'            => $user->id,
             'otherUserId'       => $otherUserId,
         ];
-    }
-
-    public function updateStatus($transaction)
-    {
-        $amount = $transaction->value;
-        
-        if ($transaction->type == 'DividedPayment') {
-            $amount = $transaction->value / 2;
-        }
-
-		$status = $this->statusRepository->find($transaction->status_id);
-
-		if ($transaction->paid_by == $status->receiver) {
-			$status->value = $status->value + $amount;
-		} elseif($transaction->paid_by == $status->debtor) {
-			if ($amount > $status->value) {
-				$receiver = $status->receiver;
-				$debtor   = $status->debtor;
-
-				$status->receiver = $debtor;
-				$status->debtor   = $receiver;
-
-				$status->value = $amount - $status->value;
-			} else {
-				$status->value = $status->value - $amount;
-			}
-		}
-
-		$saved = $this->statusRepository->save($status);
-
-		return $saved;
     }
 }
