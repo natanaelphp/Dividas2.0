@@ -1,0 +1,13 @@
+{
+  "short_name": "Dividas",
+  "name": "Sistemas de Dividas",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.php",
+  "display": "standalone"
+}
