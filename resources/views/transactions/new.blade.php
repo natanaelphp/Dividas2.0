@@ -27,8 +27,11 @@
 		<input type="text" name="description" value="{{ old('description') }}">
 
 		<label for="type">Tipo:</label>
-		<input type="radio" name="type" value="DividedPayment" checked>Pagamento Dividido
-		<input type="radio" name="type" value="DirectPayment">Pagamento Direto
+
+		<select name="type">
+			<option value="DividedPayment">Pagamento Dividido</option>
+			<option value="DirectPayment">Pagamento Direto</option>
+		</select>
 
 		<input type="hidden" name="paid_by" value="{{ $user->id }}">
 		<input type="hidden" name="created_by" value="{{ $authUser->id }}">

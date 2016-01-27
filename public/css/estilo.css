@@ -92,7 +92,7 @@ h1{
 	color: #333;
 }
 
-.form input[type=text], .form input[type=password]{
+.form input[type=text], .form input[type=password], .form select{
 	border-radius: 4px;
 	border: 1px solid #949494;
 	width: 98%;
@@ -110,12 +110,6 @@ h1{
 	border-radius: 1px;
 	border-left: 4px solid #949494;
 	outline: none;
-}
-
-.form input[type=radio]{
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-right: 6px;
 }
 
 .form input[type=submit]{
