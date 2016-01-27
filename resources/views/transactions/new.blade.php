@@ -28,9 +28,14 @@
 
 		<label for="type">Tipo:</label>
 
+		<?php
+			$repopulate = ['DividedPayment' => null, 'DirectPayment' => null];
+			$repopulate[old('type')] = 'selected="selected"';
+		?>
+
 		<select name="type">
-			<option value="DividedPayment">Pagamento Dividido</option>
-			<option value="DirectPayment">Pagamento Direto</option>
+			<option value="DividedPayment" {{ $repopulate['DividedPayment'] }} >Pagamento Dividido</option>
+			<option value="DirectPayment" {{ $repopulate['DirectPayment'] }} >Pagamento Direto</option>
 		</select>
 
 		<input type="hidden" name="paid_by" value="{{ $user->id }}">
