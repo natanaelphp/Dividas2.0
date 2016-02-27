@@ -23,4 +23,7 @@ $router->group(['middleware' => 'auth'], function($router) {
     $router->get('transactions/add/{paid_by}', 'TransactionController@create');
     $router->post('transactions', 'TransactionController@store');
 
+    $router->get('changePassword', 'ChangePasswordController@form');
+    $router->post('changePassword', 'ChangePasswordController@changePassword');
+
 });

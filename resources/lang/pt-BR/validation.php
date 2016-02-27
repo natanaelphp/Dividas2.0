@@ -92,6 +92,7 @@ return array(
 		'username'  	=> 'Nome do usuário',
 		'email'			=> 'E-mail',
 		'password'		=> 'Senha',
+		'new_password'	=> 'Nova Senha',
 		'value'			=> 'Valor',
 		'description'	=> 'Descrição',
 	),

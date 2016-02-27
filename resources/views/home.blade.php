@@ -3,6 +3,7 @@
 @section('beforeCenter')
 	<a href="{{ url('transactions') }}">Listar Transações</a>
 	<a href="{{ url('logout') }}" class="pull-right">Logout</a>
+	<a href="{{ url('changePassword') }}" class="pull-right text-space">Alterar senha</a>
 @stop
 
 @section('content')
