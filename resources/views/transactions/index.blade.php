@@ -31,6 +31,17 @@
 					<td>{{ $transaction->value }}</td>
 					<td align='center'>{{ $transaction->created_at->format('d/m/Y H:i') }}</td>
 					<td align='center'>
+						<?php
+							$icons = [
+								'DividedPayment'	=> '<i class="fa fa-code-fork"></i>',
+								'DirectPayment' 	=> '<i class="fa fa-arrow-right"></i>'
+							];
+
+							$icon = $icons[$transaction->type];
+						?>
+						{!! $icon !!}
+					</td>
+					<td align='center'>
 						<img src="{{ asset('images/'.$transaction->paidBy->image) }}" class="profile-table">
 					</td>
 					<td align='center'>
