@@ -20,6 +20,7 @@
 				<th>Descrição</th>
 				<th>Valor</th>
 				<th>Data/Hora</th>
+				<th>Tipo</th>
 				<th>Pago por</th>
 				<th>Criado por</th>
 			</tr>
