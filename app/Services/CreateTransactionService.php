@@ -36,7 +36,7 @@ class CreateTransactionService
         ]);
     }
 
-    public function createMessage($transaction)
+    private function createMessage($transaction)
     {
         $message =
             'Nova transação criada por '.$transaction->createdBy->name.PHP_EOL.PHP_EOL.
