@@ -2,16 +2,21 @@
 
 namespace App\Services;
 
-use App;
 use App\Repositories\TransactionRepository;
+use App\Services\UpdateStatusService;
 
 class CreateTransactionService
 {
     private $transactionRepository;
+    private $updateStatusService;
 
-    public function __construct(TransactionRepository $transactionRepository)
+    public function __construct(
+        TransactionRepository $transactionRepository,
+        UpdateStatusService $updateStatusService
+    )
     {
         $this->transactionRepository = $transactionRepository;
+        $this->updateStatusService = $updateStatusService;
     }
 
     public function createTransaction($data)
@@ -20,8 +25,7 @@ class CreateTransactionService
 
         $this->sendTelegramMessage($transaction);
 
-        $updateStatusService = App::make('App\Services\UpdateStatusService');
-        $updateStatusService->updateStatus($transaction);
+        $this->updateStatusService->updateStatus($transaction);
     }
 
     private function sendTelegramMessage($transaction)
