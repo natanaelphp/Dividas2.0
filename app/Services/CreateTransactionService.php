@@ -42,7 +42,8 @@ class CreateTransactionService
             'Nova transação criada por '.$transaction->createdBy->name.PHP_EOL.PHP_EOL.
             'Descrição: '.$transaction->description.PHP_EOL.
             'Valor: '.$transaction->value.PHP_EOL.
-            'Tipo: '.$this->getType($transaction).PHP_EOL
+            'Tipo: '.$this->getType($transaction).PHP_EOL.
+            'Pago por: '.$transaction->paidBy->name.PHP_EOL
         ;
 
         return $message;
